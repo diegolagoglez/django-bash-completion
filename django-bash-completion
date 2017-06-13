@@ -78,6 +78,14 @@ MANAGE_PY_SUBCOMMANDS_OPTIONS[collectstatic]="--ignore --help --settings --no-co
 MANAGE_PY_SUBCOMMANDS_OPTIONS[findstatic]="--first --help --settings --no-color --traceback --verbosity --version --pythonpath"
 MANAGE_PY_SUBCOMMANDS_OPTIONS[runserver]="--nostatic --help --settings --ipv6 --traceback --no-color --insecure --verbosity --nothreading --noreload --version --pythonpath"
 
+function find_applications() {
+	local apps=""
+	for app in $(ls */__init__.py 2>/dev/null); do
+		apps+=" $(dirname $app)"
+	done
+	echo $apps
+}
+
 function get_arguments_for_command() {
 	echo $MANAGE_PY_SUBCOMMANDS
 }

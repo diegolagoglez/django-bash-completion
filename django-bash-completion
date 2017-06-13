@@ -99,7 +99,31 @@ function find_migrations_names() {
 }
 
 function get_arguments_for_command() {
-	echo $MANAGE_PY_SUBCOMMANDS
+	local command="$1"
+	local app=
+	if [ ! -z "$2" -a "$2" != "./manage.py" ]; then  # FIXME: Use a variable to set './manage.py' name.
+		command="$2"
+		app="$1"
+	fi
+	if [ ${MANAGE_PY_SUBCOMMANDS_OPTIONS[$command]+isset} ]; then
+		local the_list="${MANAGE_PY_SUBCOMMANDS_OPTIONS[$command]}"
+		if [ -z "$app" ]; then
+			if [[ $the_list =~ app_label ]]; then
+				the_list="$(find_applications) $the_list"
+			fi
+		fi
+		the_list=${the_list##app_label}  # FIXME: Remove 'app_label'; this does not work
+		if [[ $the_list =~ migration_name ]]; then
+			if [ -z "$app" -a -d "$command" ]; then
+				app=$command
+			fi
+			the_list="$(find_migrations_names $app) $the_list"
+		fi
+		the_list=${the_list##migration_name}  # FIXME: Remove 'migration_name'; this does not work
+		echo $the_list
+	else
+		echo $MANAGE_PY_SUBCOMMANDS
+	fi
 }
 
 function django_admin_completion() {

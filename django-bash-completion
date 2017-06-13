@@ -1,0 +1,15 @@
+# ./manage.py completion "Django Admin - Django 1.11)
+
+MANAGE_PY_SUBCOMMANDS="changepassword createsuperuser remove_stale_contenttypes check compilemessages createcachetable dbshell diffsettings dumpdata flush inspectdb loaddata makemessages makemigrations migrate sendtestemail shell showmigrations sqlflush sqlmigrate sqlsequencereset squashmigrations startapp startproject test testserver admin_generator clean_pyc clear_cache compile_pyc create_app create_command create_jobs create_template_tags delete_squashed_migrations describe_form drop_test_database dumpscript export_emails find_template generate_secret_key graph_models mail_debug notes passwd pipchecker print_settings print_user_for_session reset_db runjob runjobs runprofileserver runscript runserver_plus set_default_site set_fake_emails set_fake_passwords shell_plus show_template_tags show_templatetags show_urls sqlcreate sqldiff sqldsn sync_s3 syncdata unreferenced_files update_permissions validate_templates clearsessions collectstatic findstatic runserver"
+
+function get_arguments_for_command() {
+	echo $MANAGE_PY_SUBCOMMANDS
+}
+
+function django_admin_completion() {
+	local cur=${COMP_WORDS[COMP_CWORD]}
+	local prev=${COMP_WORDS[COMP_CWORD-1]}
+	COMPREPLY=( $(compgen -W "$(get_arguments_for_command ${prev})" -- ${cur}) )
+}
+
+complete -F django_admin_completion ./manage.py manage.py

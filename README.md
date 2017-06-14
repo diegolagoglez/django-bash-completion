@@ -4,7 +4,7 @@
 
 [Django](https://www.djangoproject.com) has a [contributed script to allow BASH autocompletion](https://github.com/django/django/blob/master/extras/django_bash_completion). This script runs `manage.py` every time the user press Tab key to view completion options, which leads to a really slow completion feature.
 
-With this new script, a statically generated BASH source with all `manage.py` avalible commands and options is used, which leads to a much more fast completion feature.
+With this new script, a statically generated BASH source with all `manage.py` avalible commands and options is used, which leads to a much faster completion feature.
 
 This script is still under development, so some features are missing and it may misbehave. Please, [file issues](https://github.com/diegolagoglez/django-bash-completion/issues) if you find any error or misbehaviour.
 

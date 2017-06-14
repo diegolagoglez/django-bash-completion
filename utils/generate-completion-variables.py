@@ -76,6 +76,7 @@ def parse_options():
     parser.add_argument("--subcommands-var-name", dest='subcommands_var_name')
     parser.add_argument("--options-var-name", dest='options_var_name')
     parser.add_argument("--verbose", dest='verbose', action='store_true')
+    # TODO: Add option to support a file where source has to be saved.
     return parser.parse_args()
 
 
@@ -90,6 +91,7 @@ def main():
     check_arguments(args)
     commands = find_commands(args.working_command)
     commands_options = find_commands_options(args.working_command, commands)
+    verbose("Generating BASH source...")
     print("# Django's ./manage.py statically generated autocompletion source code.")
     print("# https://github.com/diegolagoglez/django-bash-completion.git -- "
           "Diego Lago <diego.lago.gonzalez@gmail.com>")

@@ -22,4 +22,4 @@ TBD
 
 ## Author & License
 
-[GPLv3](http://www.gnu.org/licenses/gpl.html) — [Diego Lago](diego.lago.gonzalez@gmail.com)
+[GPLv3](http://www.gnu.org/licenses/gpl.html) — [Diego Lago](mailto:diego.lago.gonzalez@gmail.com)

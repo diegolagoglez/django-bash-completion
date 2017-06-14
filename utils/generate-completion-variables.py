@@ -98,6 +98,7 @@ def main():
           get_django_version(args.working_command) + ".")
     print("")
     print_source_subcommands(commands_options, args)
+    print("")
     print("declare -A " + args.subcommands_var_name)
     print("")
     print_source_options_for_subcommands(commands_options, args)

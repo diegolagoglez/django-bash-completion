@@ -80,6 +80,7 @@ def parse_options():
 
 
 def check_arguments(args):
+    # TODO: Complete this function.
     global be_verbose
     be_verbose = args.verbose
 

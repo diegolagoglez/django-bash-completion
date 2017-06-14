@@ -6,34 +6,6 @@ import os
 import argparse
 import datetime
 
-commandsx = ('changepassword', 'createsuperuser', 'remove_stale_contenttypes', 'check', 'compilemessages',
-            'createcachetable', 'dbshell', 'diffsettings', 'dumpdata', 'flush', 'inspectdb', 'loaddata',
-            'makemessages', 'makemigrations', 'migrate', 'sendtestemail', 'shell', 'showmigrations', 'sqlflush',
-            'sqlmigrate', 'sqlsequencereset', 'squashmigrations', 'startapp', 'startproject', 'test', 'testserver',
-            'admin_generator', 'clean_pyc', 'clear_cache', 'compile_pyc', 'create_app', 'create_command',
-            'create_jobs', 'create_template_tags', 'delete_squashed_migrations', 'describe_form',
-            'drop_test_database', 'dumpscript', 'export_emails', 'find_template', 'generate_secret_key',
-            'graph_models', 'mail_debug', 'notes', 'passwd', 'pipchecker', 'print_settings',
-            'print_user_for_session', 'reset_db', 'runjob', 'runjobs', 'runprofileserver', 'runscript',
-            'runserver_plus', 'set_default_site', 'set_fake_emails', 'set_fake_passwords', 'shell_plus',
-            'show_template_tags', 'show_templatetags', 'show_urls', 'sqlcreate', 'sqldiff', 'sqldsn',
-            'sync_s3', 'syncdata', 'unreferenced_files', 'update_permissions', 'validate_templates',
-            'clearsessions', 'collectstatic', 'findstatic', 'runserver')
-
-manage_py_command = "/home/lagogond/Projects/adict3/adict-backend/manage.py"
-
-array_name = "MANAGE_PY_SUBCOMMANDS_OPTIONS"
-
-# for command in commands:
-#     output = os.popen(manage_py_command + " help " + command)
-
-#     items = []
-#     for line in output:
-#         matches = re.findall("(--[A-Za-z\-_0-9]+)", line)
-#         for m in matches:
-#             items.append(str(m))
-
-#     print(array_name + "[" + command + "]=\"" + " ".join(list(set(items))) + "\"")
 
 be_verbose = False
 

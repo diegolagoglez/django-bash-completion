@@ -33,7 +33,7 @@ def find_commands(working_command):
             command = matches.group("command")
             verbose("Subcommand: " + command)
             commands.append(command)
-    return commands
+    return sorted(commands)
 
 
 def find_options_for_command(working_command, subcommand):

@@ -112,14 +112,14 @@ function get_arguments_for_command() {
 				the_list="$(find_applications) $the_list"
 			fi
 		fi
-		the_list=${the_list##app_label}  # FIXME: Remove 'app_label'; this does not work
+		the_list=${the_list/app_label/}
 		if [[ $the_list =~ migration_name ]]; then
 			if [ -z "$app" -a -d "$command" ]; then
 				app=$command
 			fi
 			the_list="$(find_migrations_names $app) $the_list"
 		fi
-		the_list=${the_list##migration_name}  # FIXME: Remove 'migration_name'; this does not work
+		the_list=${the_list/migration_name/}
 		echo $the_list
 	else
 		echo $MANAGE_PY_SUBCOMMANDS

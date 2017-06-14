@@ -9,14 +9,17 @@ import datetime
 
 be_verbose = False
 
+
 def verbose(msg):
     if be_verbose:
         print(msg, file=sys.stderr)
+
 
 def get_django_version(working_command):
     output = os.popen(working_command + " version")
     for line in output:
         return line.strip()
+
 
 def find_commands(working_command):
     verbose("Commands from: " + working_command)
@@ -32,6 +35,7 @@ def find_commands(working_command):
             commands.append(command)
     return commands
 
+
 def find_options_for_command(working_command, subcommand):
     output = os.popen(working_command + " help " + subcommand)
     options = []
@@ -44,22 +48,27 @@ def find_options_for_command(working_command, subcommand):
                 options.append(match)
     return list(set(options))
 
+
 def find_commands_options(working_command, commands):
     options = {}
     for command in commands:
         options[command] = find_options_for_command(working_command, command)
     return options
 
+
 def print_source_subcommands(subcommands, args):
     print(args.subcommands_var_name + "=\"" + " ".join(subcommands.keys()) + "\"")
+
 
 def print_source_options_for_subcommand(subcommand, options, args):
     var_name = args.options_var_name
     print(var_name + "[" + subcommand + "]=\"" + " ".join(options) + "\"")
 
+
 def print_source_options_for_subcommands(subcommands, args):
     for subcommand in subcommands:
         print_source_options_for_subcommand(subcommand, subcommands[subcommand], args)
+
 
 def parse_options():
     parser = argparse.ArgumentParser()
@@ -69,9 +78,11 @@ def parse_options():
     parser.add_argument("--verbose", dest='verbose', action='store_true')
     return parser.parse_args()
 
+
 def check_arguments(args):
     global be_verbose
     be_verbose = args.verbose
+
 
 def main():
     args = parse_options()

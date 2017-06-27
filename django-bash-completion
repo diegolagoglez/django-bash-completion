@@ -6,7 +6,7 @@
 
 MANAGE_PY_SUBCOMMANDS="check diffsettings loaddata create_app dumpdata compile_pyc remove_stale_contenttypes inspectdb show_template_tags clean_pyc unreferenced_files clearsessions runprofileserver describe_form createcachetable update_permissions sqlsequencereset show_urls syncdata dumpscript validate_templates delete_squashed_migrations showmigrations set_fake_emails print_user_for_session show_templatetags generate_secret_key create_command passwd sqlflush sqlmigrate runserver flush changepassword startapp graph_models startproject set_default_site drop_test_database mail_debug sqldiff clear_cache sqlcreate testserver squashmigrations runserver_plus collectstatic test findstatic shell create_jobs makemigrations print_settings runjob sqldsn admin_generator shell_plus createsuperuser sendtestemail reset_db compilemessages makemessages pipchecker create_template_tags runscript migrate find_template runjobs dbshell export_emails notes set_fake_passwords"
 
-declare -A MANAGE_PY_SUBCOMMANDS
+declare -A MANAGE_PY_SUBCOMMANDS_OPTIONS
 
 MANAGE_PY_SUBCOMMANDS_OPTIONS[check]="--traceback --version --pythonpath -v --deploy app_label --fail-level --list-tags --settings --no-color -h --tag"
 MANAGE_PY_SUBCOMMANDS_OPTIONS[diffsettings]="--traceback --version --pythonpath -v --all --settings --no-color -h --default"
